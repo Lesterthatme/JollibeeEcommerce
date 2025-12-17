@@ -37,13 +37,15 @@
                 <li class="text-nowrap"><a href="#">Gift Cards</a></li>
                 <li class="text-nowrap">
                     <a href="#"
-                        class="bg-white text-red-600 rounded-full p-3 hover:text-red-500 transition-colors duration-200">Order
+                        class="bg-white text-red-600 rounded-full p-3 hover:text-red-500 transition-colors duration-400">Order
                         Now</a>
                 </li>
             </ul>
             {{-- pag naka device --}}
-            <div class="nav-device-body fixed inset-0 bg-black/50 hidden sm:hidden">
-                <div class="bg-white w-[65%] h-full px-4 flex flex-col">
+            <div class="nav-device-body fixed inset-0 bg-black/50 opacity-0 transition-opacity duration-300 hidden"
+                onclick="outside()">
+                <div class="bg-white w-[65%] h-full px-4 flex flex-col -translate-x-full transition-transform duration-300"
+                    onclick="event.stopImmediatePropagation()">
                     <div class="flex justify-between py-4">
                         <img src="https://www.jollibee.com.ph/themes/custom/jfc_global_theme/images/mobile-offcanvas-logo.png"
                             alt="jollisog" class="">
@@ -75,14 +77,41 @@
         const openModalDevice = document.querySelector('.open-modal-device');
         const closeModalDevice = document.querySelector('.close-modal-device');
         const navDeviceBody = document.querySelector('.nav-device-body');
+        const sidePanel = navDeviceBody.querySelector('.bg-white');
 
         openModalDevice.addEventListener('click', (e) => {
             navDeviceBody.classList.remove('hidden');
+            navDeviceBody.classList.add('flex');
+            setTimeout(() => {
+                navDeviceBody.classList.add("opacity-100");
+                sidePanel.classList.remove('-translate-x-full');
+                sidePanel.classList.add('translate-x-0');
+            }, 50);
+
+
         });
 
-        closeModalDevice.addEventListener('click', (e) => {
-            navDeviceBody.classList.add('hidden');
-        })
+        closeModalDevice.addEventListener('click', () => {
+            outside();
+        });
+
+        function outside() {
+            // fade out overlay
+            navDeviceBody.classList.remove('opacity-100');
+            navDeviceBody.classList.add('opacity-0');
+
+            //  -translate-x-full
+            // slide menu out
+            sidePanel.classList.remove('translate-x-0');
+            sidePanel.classList.add('-translate-x-full');
+
+
+            // after animation, hide overlay
+            setTimeout(() => {
+                navDeviceBody.classList.add('hidden');
+                navDeviceBody.classList.remove('flex');
+            }, 300); // match duration-300
+        }
     </script>
 </body>
 
