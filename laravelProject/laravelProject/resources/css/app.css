@@ -11,62 +11,10 @@
         "Noto Color Emoji";
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,200;1,300&display=swap");
-
-body {
-    font-family: "Poppins", sans-serif;
-}
-.poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.poppins-regular {
-    font-family: "Poppins", sans-serif;
+@font-face {
+    font-family: "MySpecialFont";
+    src: url("../fonts/Jellee-Roman.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
 }
 
-.poppins-extralight-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: italic;
-}
-
-.poppins-light-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-@layer components {
-    .btn-primary {
-        border-radius: calc(infinity * 1px);
-        background-color: var(--color-violet-500);
-        padding-inline: --spacing(5);
-        padding-block: --spacing(2);
-        font-weight: var(--font-weight-semibold);
-        color: var(--color-white);
-        box-shadow: var(--shadow-md);
-        &:hover {
-            @media (hover: hover) {
-                background-color: var(--color-violet-700);
-            }
-        }
-    }
-    .btn-secondary {
-      border-radius: calc(infinity * 1px);
-        background-color: var(--color-violet-500);
-        padding-inline: --spacing(5);
-        padding-block: --spacing(2);
-        font-weight: var(--font-weight-semibold);
-        color: var(--color-white);
-        box-shadow: var(--shadow-md);
-        &:hover {
-            @media (hover: hover) {
-                background-color: var(--color-violet-700);
-            }
-        }
-    }
-}

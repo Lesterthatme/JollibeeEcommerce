@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Welcome to the Home Page</h1>
-    <a href="{{ route('mganumero') }}">Go to Contact</a>
-    <a href="{{ route('route') }}">Go to Route</a>
-</body>
-</html>
+<x-layout title="Home | Jollibee">
+    <section class="p-10 text-center">
+        <h1 class="text-3xl font-light">Welcome to Jollibee</h1>
+        <p class="mt-4">This page uses x-layout and i got this  .</p>
+    </section>
+</x-layout>

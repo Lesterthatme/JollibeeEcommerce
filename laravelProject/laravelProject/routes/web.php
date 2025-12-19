@@ -12,5 +12,4 @@ Route::get('/contact', [UserController::class, 'contactor'])
 Route::get('/route', [UserController::class, 'route'])
     ->name('route');
 
-Route::view('/welcome', 'welcome');
-Route::view('/', 'index');
+Route::view('/', 'home');
